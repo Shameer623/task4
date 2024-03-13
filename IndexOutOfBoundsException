@@ -1,0 +1,31 @@
+package task4;
+import java.util.*;
+// class Arrays
+public class Arrays {
+//String containing all 7 weekdays
+    String[] weekdays ={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+
+    public static void main(String[] args) {
+//try block
+        try {
+            Arrays array = new Arrays();
+            Scanner sc = new Scanner(System.in);
+            int index = sc.nextInt();
+            if(index>=0 && index<7){
+                System.out.println(array.weekdays[index]);
+            }
+            else
+                throw new IndexOutOfBoundsException("index ranges from 0 to 6");
+//catch block
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+}
+
+//OUTPUT
+7
+Exception in thread "main" java.lang.IndexOutOfBoundsException: index ranges from 0 to 6
+
