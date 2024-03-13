@@ -1,0 +1,64 @@
+package task4;
+//class for AgeNotWithinRangeException 
+class AgeNotWithinRangeException extends Exception{
+    public AgeNotWithinRangeException(String message){
+        super(message);
+    }
+}
+// class for NameNotValidException 
+
+class NameNotValidException extends Exception{
+    public NameNotValidException(String message){
+        super(message);
+    }
+}
+//student class
+class Student {
+    int rollNum;
+    String name;
+    int age;
+    String course;
+//student constructor
+    public Student(int rollNum, String name, int age, String course) throws AgeNotWithinRangeException, NameNotValidException {
+        if (age < 15 || age > 21) {
+            throw new AgeNotWithinRangeException("age should be within 15 to 21");
+        }
+        if (!name.matches("[a-zA-Z]+")) {
+            throw new NameNotValidException("name should not contain special symbols");
+
+        }
+
+        this.rollNum = rollNum;
+        this.name = name;
+        this.age = age;
+        this.course = course;
+    }
+}
+//Main class
+public class Main{
+
+
+
+    public static void main(String[] args) {
+        try {
+        //creating object of Student class
+            Student student = new Student(101,"Shameer",25 ,"javafsd");
+
+            System.out.println(student.rollNum);
+            System.out.println(student.name);
+            System.out.println(student.age);
+            System.out.println(student.course);
+
+        }
+        catch (AgeNotWithinRangeException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+        catch (NameNotValidException e){
+            System.out.println("Exception occurred: "+ e.getMessage());
+        }
+    }
+
+}
+
+//OUTPUT
+Exception occurred: age should be within 15 to 21
