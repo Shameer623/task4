@@ -1,0 +1,48 @@
+package task4;
+import java.util.*;
+
+public class DriverMain {
+    // HashMap to store student 
+    HashMap<String,Integer> student = new HashMap<>();
+    
+    // Method to add a student 
+    public void addStudent(String name, int grade) {
+        student.put(name, grade);
+        System.out.println("Student " + name +  " added with grade " + grade);
+    }
+    
+    // Method to remove a student 
+    public void removeStudent(String name){
+        if(student.containsKey(name)){ 
+            student.remove(name); 
+            System.out.println("Student "+ name+ " removed successfully"); 
+        }
+        else
+            System.out.println("Student not found"); 
+    }
+    
+    // Method to display the grade 
+    public  void displayGrade(String name){
+        if(student.containsKey(name)){
+            int stGrade = student.get(name); 
+            System.out.println("Student "+ name+ " has a grade "+stGrade); 
+        }
+        else
+            System.out.println("Student not found"); 
+    }
+
+    // Main method 
+    public static void main(String[] args) {
+        DriverMain st = new DriverMain(); 
+        st.addStudent("Shameer",75); 
+        st.addStudent("Suhail",85); 
+        st.removeStudent("Suhail"); 
+        st.displayGrade("Shameer"); 
+    }
+}
+
+//OUTPUT
+Student Shameer added with grade 75
+Student Suhail added with grade 85
+student Suhail removed with grade 85
+student Shameer has a grade 75
